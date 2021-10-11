@@ -21,8 +21,10 @@ class Home extends CI_Controller
 	 */
 	public function index()
 	{
-		var_dump(base_url());
-		die;
 		$this->load->view('halaman_utama/index');
+	}
+
+	public function rekrutmen()
+	{
 	}
 }
