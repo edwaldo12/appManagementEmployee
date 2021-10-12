@@ -24,12 +24,23 @@
 
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <label for="nama">Nama</label>
+                        <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama" name="nama">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <label for="alamat">Alamat</label>
+                        <input type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat" name="alamat">
+                    </div>
+                    <div class="form-group">
+                        <label for="Telepon">Telepon</label>
+                        <input type="tel" class="form-control" id="Telepon" placeholder="Masukkan Telepon" name="telepon">
+                    </div>
+                    <div class="form-group">
+                        <label for="jenis_kelamin">Jenis Kelamin</label>
+                        <select id="jenis_kelamin" name="jenis_kelamin" class="form-control">
+                            <option value="L">Laki-Laki</option>
+                            <option value="P">Perempuan</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">File input</label>
@@ -42,10 +53,6 @@
                                 <span class="input-group-text">Upload</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
                 </div>
                 <!-- /.card-body -->
