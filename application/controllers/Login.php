@@ -11,7 +11,7 @@ class Login extends CI_Controller
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-        $user = $this->user->getPenggunaByUsername($username);
+        $user = $this->pengguna->getPenggunaByUsername($username);
         if ($user['password'] == sha1($password)) {
             $this->session->set_userdata("user", $user);
             redirect('/dashboard');

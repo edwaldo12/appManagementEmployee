@@ -24,7 +24,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="<?php site_url('guest/halaman_login') ?>" class="nav-link">
+                    <a href="<?= site_url('guest/login') ?>" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Login
@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= site_url('guest/ajukan_lamaran') ?>" class="nav-link">
                         <i class="nav-icon fas fa-envelope"></i>
                         <p>
                             Ajukan Lamaran
