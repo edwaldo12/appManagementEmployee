@@ -23,22 +23,33 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a href="<?= site_url('guest/login') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Login
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= site_url('guest/ajukan_lamaran') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-envelope"></i>
-                        <p>
-                            Ajukan Lamaran
-                        </p>
-                    </a>
-                </li>
+                <?php
+                $login = $this->session->userdata('user');
+                if (empty($login)) {
+                ?>
+                    <li class='nav-item'>
+                        <a href='<?= site_url('guest/login') ?>' class='nav-link'>
+                            <i class='nav-icon fas fa-th'></i>
+                            <p>
+                                Login
+                            </p>
+                        </a>
+                    </li>
+                    <li class='nav-item'>
+                        <a href='<?= site_url('guest/ajukan_lamaran') ?>' class='nav-link'>
+                            <i class='nav-icon fas fa-envelope'></i>
+                            <p>
+                                Ajukan Lamaran
+                            </p>
+                        </a>
+                    </li>
+                <?php } else { ?>
+                    <?php if ($login['role'] == "Admin") { ?>
+
+                    <?php } else { ?>
+
+                    <?php } ?>
+                <?php } ?>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
