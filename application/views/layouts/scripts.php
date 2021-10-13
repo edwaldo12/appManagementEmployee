@@ -32,3 +32,10 @@
 <script src="<?= base_url() ?>adminlte/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url() ?>adminlte/dist/js/pages/dashboard.js"></script>
+<!-- bs-custom-file-input -->
+<script src="<?= base_url() ?>adminlte/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script>
+    $(function() {
+        bsCustomFileInput.init();
+    });
+</script>
