@@ -80,8 +80,8 @@
                                     <input type="file" id="upload_cv" required name="upload_cv" value="<?= set_value('upload_cv') ?>">
                                     <label class="custom-file-label" for="upload_cv">Choose file</label>
                                 </div>
-                                <h4 style="color:red">File hanya bisa dalam pdf!</h34>
                             </div>
+                            <small class="text-muted">File hanya bisa dalam pdf!</small>
                         </div>
                     </div>
                     <!-- /.card-body -->
