@@ -60,6 +60,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class='nav-item'>
+                            <a href='<?= site_url('jabatan') ?>' class='nav-link'>
+                                <i class='nav-icon fas fa-chart-pie'></i>
+                                <p>
+                                    Jabatan
+                                </p>
+                            </a>
+                        </li>
                     <?php } else { ?>
 
                     <?php } ?>
