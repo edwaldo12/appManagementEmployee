@@ -49,7 +49,13 @@
                         </div>
                         <div class="form-group">
                             <label for="agama">Agama</label>
-                            <input type="text" class="form-control" id="agama" placeholder="Masukkan Agama" name="agama" value="<?= set_value('agama') ?>" required>
+                            <select id="agama" name="agama" class="form-control" required>
+                                <option <?= set_value('agama') == 'Islam' ? "selected" : "" ?> value="Islam">Islam</option>
+                                <option <?= set_value('agama') == 'Kristen' ? "selected" : "" ?> value="Kristen">Kristen</option>
+                                <option <?= set_value('agama') == 'Katolik' ? "selected" : "" ?> value="Katolik">Katolik</option>
+                                <option <?= set_value('agama') == 'Hindu' ? "selected" : "" ?> value="Hindu">Hindu</option>
+                                <option <?= set_value('agama') == 'Budha' ? "selected" : "" ?> value="Budha">Budha</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="warga_negara">Warga Negara</label>
@@ -57,20 +63,34 @@
                         </div>
                         <div class="form-group">
                             <label for="pendidikan_terakhir">Pendidikan Terakhir</label>
-                            <input type="text" class="form-control" id="pendidikan_terakhir" placeholder="Masukkan Pendidikan Terakhir" name="pendidikan_terakhir" value="<?= set_value('pendidikan_terakhir') ?>" required>
+                            <select id="pendidikan_terakhir" name="pendidikan_terakhir" class="form-control" required>
+                                <option <?= set_value('pendidikan_terakhir') == '-' ? "selected" : "" ?> value="-">-</option>
+                                <option <?= set_value('pendidikan_terakhir') == 'SD' ? "selected" : "" ?> value="SD">SD</option>
+                                <option <?= set_value('pendidikan_terakhir') == 'SMP' ? "selected" : "" ?> value="SMP">SMP</option>
+                                <option <?= set_value('pendidikan_terakhir') == 'SMA' ? "selected" : "" ?> value="SMA">SMA</option>
+                                <option <?= set_value('pendidikan_terakhir') == 'D1' ? "selected" : "" ?> value="D1">D1</option>
+                                <option <?= set_value('pendidikan_terakhir') == 'D2' ? "selected" : "" ?> value="D2">D2</option>
+                                <option <?= set_value('pendidikan_terakhir') == 'D3' ? "selected" : "" ?> value="D3">D3</option>
+                                <option <?= set_value('pendidikan_terakhir') == 'D4' ? "selected" : "" ?> value="D4">D4</option>
+                                <option <?= set_value('pendidikan_terakhir') == 'D5' ? "selected" : "" ?> value="D5">D5</option>
+                                <option <?= set_value('pendidikan_terakhir') == 'S1' ? "selected" : "" ?> value="S1">S1</option>
+                                <option <?= set_value('pendidikan_terakhir') == 'S2' ? "selected" : "" ?> value="S2">S2</option>
+                                <option <?= set_value('pendidikan_terakhir') == 'S3' ? "selected" : "" ?> value="S3">S3</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="status_pernikahan">Status Pernikahan</label>
-                            <input type="text" class="form-control" id="status_pernikahan" placeholder="Masukkan Status Pernikahan" name="status_pernikahan" value="<?= set_value('status_pernikahan') ?>" required>
+                            <select id="status_pernikahan" name="status_pernikahan" class="form-control" required>
+                                <option <?= set_value('status_pernikahan') == 'Belum Menikah' ? "selected" : "" ?> value="Belum Menikah">Belum Menikah</option>
+                                <option <?= set_value('status_pernikahan') == 'Menikah' ? "selected" : "" ?> value="Menikah">Menikah</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="id_jabatan">Jabatan Yang Dikehendaki</label>
                             <select id="id_jabatan" name="id_jabatan" class="form-control">
-                                <?php
-                                foreach ($jabatan as $jabatan) {
-                                    echo "<option value=" . $jabatan->id . ">" . $jabatan['jabatan'] . "</option>";
-                                }
-                                ?>
+                                <?php foreach ($jabatan as $jabatan) { ?>
+                                    <option value="<?= $jabatan['id'] ?>"><?=  $jabatan['jabatan']  ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -97,8 +117,8 @@
     <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-
 <?php if ($this->session->flashdata('upload_lamaran')) { ?>
+    <?php unset($_SESSION['upload_lamaran']) ?>
     <script>
         alert('Lamaran berhasil diajukan!');
     </script>
