@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2021 at 06:37 PM
+-- Generation Time: Oct 14, 2021 at 05:46 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -58,6 +58,13 @@ CREATE TABLE `jabatan` (
   `jabatan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `jabatan`
+--
+
+INSERT INTO `jabatan` (`id`, `jabatan`) VALUES
+(5, 'asd');
+
 -- --------------------------------------------------------
 
 --
@@ -68,11 +75,19 @@ CREATE TABLE `pengguna` (
   `id` int(11) NOT NULL,
   `nama` text NOT NULL,
   `password` text NOT NULL,
-  `role` enum('0','1') NOT NULL,
+  `role` enum('Admin','Pegawai') NOT NULL,
   `status` enum('0','1') NOT NULL,
   `id_jabatan` int(11) NOT NULL,
   `username` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengguna`
+--
+
+INSERT INTO `pengguna` (`id`, `nama`, `password`, `role`, `status`, `id_jabatan`, `username`) VALUES
+(2, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Admin', '1', 1, 'admin'),
+(3, 'Yohanes ', '72c95b42a8f3ec08fbb451756497d7e5a254675f', 'Pegawai', '1', 1, 'yohanes');
 
 -- --------------------------------------------------------
 
@@ -132,7 +147,6 @@ CREATE TABLE `punishment` (
 
 CREATE TABLE `rekrutmen` (
   `id` int(11) NOT NULL,
-  `id_pengguna` int(11) NOT NULL,
   `nama` text NOT NULL,
   `alamat` text NOT NULL,
   `telepon` text NOT NULL,
@@ -143,9 +157,17 @@ CREATE TABLE `rekrutmen` (
   `pendidikan_terakhir` text NOT NULL,
   `status_pernikahan` text NOT NULL,
   `id_jabatan` int(11) NOT NULL,
-  `status_rekrutmen` text NOT NULL,
-  `upload_cv` text NOT NULL
+  `status_rekrutmen` enum('0','1','2') NOT NULL DEFAULT '0',
+  `upload_cv` text NOT NULL,
+  `id_pengguna` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rekrutmen`
+--
+
+INSERT INTO `rekrutmen` (`id`, `nama`, `alamat`, `telepon`, `jenis_kelamin`, `tanggal_lahir`, `agama`, `warga_negara`, `pendidikan_terakhir`, `status_pernikahan`, `id_jabatan`, `status_rekrutmen`, `upload_cv`, `id_pengguna`) VALUES
+(2, 'Yohanes ', 'Jalan Seduduk Merah', '0811711445566', 'L', '2001-04-24', 'Islam', 'Indonesia', '-', 'Belum Menikah', 1, '1', 'export-10_7_2021,_7_20_13_PM.pdf', 3);
 
 -- --------------------------------------------------------
 
@@ -243,13 +265,13 @@ ALTER TABLE `cuti`
 -- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pengunduran_diri`
@@ -279,7 +301,7 @@ ALTER TABLE `punishment`
 -- AUTO_INCREMENT for table `rekrutmen`
 --
 ALTER TABLE `rekrutmen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reward`
