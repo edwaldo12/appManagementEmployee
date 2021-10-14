@@ -38,12 +38,13 @@ class Guest extends CI_Controller
                 'warga_negara' => $this->input->post('warga_negara'),
                 'pendidikan_terakhir' => $this->input->post('pendidikan_terakhir'),
                 'status_pernikahan' => $this->input->post('status_pernikahan'),
+                'status_rekrutmen' => "Menunggu",
                 'id_jabatan' => $this->input->post('id_jabatan'),
                 'upload_cv' => $this->upload->data()['file_name']
             ];
-
+            
             $this->session->set_flashdata("upload_lamaran", $this->rekrutmen->saveRekrutmen($data));
-            redirect('/');
+            redirect('guest/ajukan_lamaran');
         } else {
             var_dump($this->upload->display_errors());
             die;
