@@ -12,8 +12,8 @@ class Pegawai extends CI_Controller
     }
     public function editProfil($id)
     {
-        $data['_view'] = "admin/edit_profile";
         $login = $this->session->userdata('user');
+        $data['_view'] = "admin/edit_profile";
         $data['jabatan'] = $this->pengguna->getPenggunaJabatan($login['id_jabatan']);
         $data['pengguna'] = $this->pengguna->getPengguna($id);
         $this->load->view('layouts/index', $data);
@@ -21,7 +21,6 @@ class Pegawai extends CI_Controller
     public function updateProfile($id)
     {
         $data['pengguna'] = $this->pengguna->getPengguna($id);
-        die;
         if (empty($this->input->post('password'))) {
             $data = [
                 'id' => $id,
@@ -33,11 +32,11 @@ class Pegawai extends CI_Controller
             $data = [
                 'id' => $id,
                 'nama' => $this->input->post('nama'),
-                'password' => $this->input->post('password'),
+                'password' => sha1($this->input->post('password')),
                 'username' => $this->input->post('username'),
             ];
         }
         $this->session->set_flashdata("update_pengguna", $this->pengguna->updatePengguna($data));
-        redirect('/');
+        redirect('pegawai/index');
     }
 }
