@@ -53,7 +53,7 @@
                                                 <a href="daftar_lamaran/tolak/<?= $l['id'] ?>" class="btn btn-sm btn-danger" style="width:32px">
                                                     <i class="fa fa-times"></i>
                                                 </a>
-                                            <?php }else{ ?>
+                                            <?php } else { ?>
                                                 <?= $l['status_rekrutmen'] == "1" ? "Di Terima" : "Di Tolak" ?>
                                             <?php } ?>
                                         </td>
