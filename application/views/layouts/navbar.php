@@ -14,7 +14,10 @@
 
         <?php } else { ?>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="<?php echo site_url('login/logout') ?>" class="nav-link">Logout</a>
+                <a style="color:green" href="<?php echo site_url('pegawai/editProfil/' . $login['id']) ?>" class="nav-link">Edit Profil</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a style="color:red" href="<?php echo site_url('login/logout') ?>" class="nav-link">Logout</a>
             </li>
         <?php } ?>
     </ul>
