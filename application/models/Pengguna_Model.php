@@ -5,8 +5,8 @@ class Pengguna_Model extends CI_Model
     public function getAllPengguna()
     {
         $this->db->select("p.username,r.tanggal_lahir,p.role,p.status,j.jabatan,r.telepon,r.alamat,p.nama,r.jenis_kelamin,r.agama,r.warga_negara,r.pendidikan_terakhir,r.status_pernikahan");
-        $this->db->join("jabatan as j","j.id = p.id_jabatan");
-        $this->db->join("rekrutmen as r","r.id_pengguna = p.id","left");
+        $this->db->join("jabatan as j", "j.id = p.id_jabatan");
+        $this->db->join("rekrutmen as r", "r.id_pengguna = p.id", "left");
         return $this->db->get("pengguna as p")->result_array();
     }
     public function getPengguna($id)
@@ -21,6 +21,28 @@ class Pengguna_Model extends CI_Model
     }
     public function savePengguna($pengguna)
     {
-        return $this->db->insert('pengguna',$pengguna);
+        return $this->db->insert('pengguna', $pengguna);
+    }
+    public function updatePengguna($data)
+    {
+        extract($data);
+        $this->db->where('id', $id);
+        $this->db->update(
+            'pengguna',
+            array(
+                'nama' => $nama,
+                'password' => $password,
+                'username' => $username
+            )
+        );
+    }
+    public function getPenggunaJabatan($id)
+    {
+        $this->db->select('jabatan');
+        $this->db->from('jabatan');
+        $this->db->join('pengguna', 'jabatan.id = pengguna.id_jabatan');
+        $this->db->where('jabatan.id ', $id);
+        $query = $this->db->get()->row_array();
+        return $query;
     }
 }
