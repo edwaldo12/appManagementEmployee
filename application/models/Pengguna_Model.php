@@ -32,9 +32,8 @@ class Pengguna_Model extends CI_Model
             array(
                 'nama' => $nama,
                 'password' => $password,
-                'role'  => $role,
                 'status' => $status,
-                'id_jabatan' => $status,
+                'id_jabatan' => $id_jabatan,
                 'username' => $username
             )
         );
