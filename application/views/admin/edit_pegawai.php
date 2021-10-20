@@ -42,8 +42,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="jabatan">Jabatan</label>
-                                    <select name="jabatan" id="jabatan" class="form-control">
+                                    <label for="id_jabatan">Jabatan</label>
+                                    <select name="id_jabatan" id="id_jabatan" class="form-control">
                                         <?php foreach ($jabatan as $jabatan) { ?>
                                             <option value="<?php echo $jabatan['id'] ?>"><?php echo $jabatan['jabatan'] ?></option>
                                         <?php } ?>
