@@ -25,6 +25,7 @@
                                     <th>Username</th>
                                     <th>Jabatan</th>
                                     <th>Password Default</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,7 +34,19 @@
                                         <td><?= $p['nama'] ?></td>
                                         <td><?= $p['username'] ?></td>
                                         <td><?= $p['jabatan'] ?></td>
-                                        <td><?= date('Ymd',strtotime($p['tanggal_lahir'])) ?></td>
+                                        <td><?= date('Ymd', strtotime($p['tanggal_lahir'])) ?></td>
+                                        <td>
+                                            <a href="<?php echo site_url('pegawai/halamanEdit/' . $p['id']) ?>">
+                                                <button class="btn btn-warning btn-sm text-white">
+                                                    <i class="fa fa-pen"></i>
+                                                </button>
+                                            </a>
+                                            <a href="<?php echo site_url('pegawai/delete/' . $p['id']) ?>">
+                                                <button class="btn btn-danger btn-sm text-white">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </a>
+                                        </td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
