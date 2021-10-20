@@ -24,7 +24,7 @@
                                     <th>Nama</th>
                                     <th>Username</th>
                                     <th>Jabatan</th>
-                                    <th>Password Default</th>
+                                    <th>Status Karyawan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -34,7 +34,12 @@
                                         <td><?= $p['nama'] ?></td>
                                         <td><?= $p['username'] ?></td>
                                         <td><?= $p['jabatan'] ?></td>
-                                        <td><?= date('Ymd', strtotime($p['tanggal_lahir'])) ?></td>
+                                        <!-- <td><?= date('Ymd', strtotime($p['tanggal_lahir'])) ?></td> -->
+                                        <?php if ($p['status'] == '0') { ?>
+                                            <td>Non-Aktif</td>
+                                        <?php } else { ?>
+                                            <td>Aktif</td>
+                                        <?php } ?>
                                         <td>
                                             <a href="<?php echo site_url('pegawai/halamanEdit/' . $p['id']) ?>">
                                                 <button class="btn btn-warning btn-sm text-white">
