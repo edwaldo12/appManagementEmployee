@@ -31,14 +31,6 @@
                                     <input type="text" class="form-control" id="nama" placeholder="Masukkan nama" name="nama" value="<?php echo $pengguna['nama'] ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="jabatan">Jabatan</label>
-                                    <select name="jabatan" id="jabatan" class="form-control">
-                                        <?php foreach ($jabatan as $jabatan) { ?>
-                                            <option value="<?php echo $jabatan['id'] ?>"><?php echo $jabatan['jabatan'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label for="username">Username</label>
                                     <input type="text" class="form-control" id="username" placeholder="Masukkan Username" name="username" value="<?php echo $pengguna['username'] ?>" required>
                                 </div>
@@ -50,24 +42,18 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="role">Role</label>
-                                    <select name="role" id="role" class="form-control">
-                                        <option value="Admin">Admin</option>
-                                        <option value="Pegawai">Pegawai</option>
+                                    <label for="jabatan">Jabatan</label>
+                                    <select name="jabatan" id="jabatan" class="form-control">
+                                        <?php foreach ($jabatan as $jabatan) { ?>
+                                            <option value="<?php echo $jabatan['id'] ?>"><?php echo $jabatan['jabatan'] ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="status">status</label>
                                     <select name="status" id="status" class="form-control">
-                                        <option value="0">Non-Aktif</option>
                                         <option value="1">Aktif</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="status">status</label>
-                                    <select name="status" id="status" class="form-control">
                                         <option value="0">Non-Aktif</option>
-                                        <option value="1">Aktif</option>
                                     </select>
                                 </div>
                             </div>

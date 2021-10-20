@@ -61,7 +61,6 @@ class Pegawai extends CI_Controller
                 'id' => $id,
                 'nama' => $this->input->post('nama'),
                 'password' => sha1($this->input->post('password')),
-                'role' => $this->input->post('role'),
                 'status' => $this->input->post('status'),
                 'id_jabatan' => $this->input->post('id_jabatan'),
                 'username' =>  $this->input->post('username')
@@ -71,7 +70,6 @@ class Pegawai extends CI_Controller
                 'id' => $id,
                 'nama' => $this->input->post('nama'),
                 'password' => $password_lama['password'],
-                'role' => $this->input->post('role'),
                 'status' => $this->input->post('status'),
                 'id_jabatan' => $this->input->post('id_jabatan'),
                 'username' =>  $this->input->post('username')
