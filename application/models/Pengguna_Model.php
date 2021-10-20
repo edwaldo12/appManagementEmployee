@@ -44,4 +44,14 @@ class Pengguna_Model extends CI_Model
     {
         return $this->db->delete('pengguna', array('id' => $data));
     }
+
+    public function getPenggunaJabatan($id)
+    {
+        $this->db->select('jabatan');
+        $this->db->from('jabatan');
+        $this->db->join('pengguna', 'jabatan.id = pengguna.id_jabatan');
+        $this->db->where('jabatan.id ', $id);
+        $query = $this->db->get()->row_array();
+        return $query;
+    }
 }
