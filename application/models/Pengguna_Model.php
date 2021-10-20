@@ -4,7 +4,7 @@ class Pengguna_Model extends CI_Model
 
     public function getAllPengguna()
     {
-        $this->db->select("p.username,r.tanggal_lahir,p.role,p.status,j.jabatan,r.telepon,r.alamat,p.nama,r.jenis_kelamin,r.agama,r.warga_negara,r.pendidikan_terakhir,r.status_pernikahan");
+        $this->db->select("p.id,p.username,r.tanggal_lahir,p.role,p.status,j.jabatan,r.telepon,r.alamat,p.nama,r.jenis_kelamin,r.agama,r.warga_negara,r.pendidikan_terakhir,r.status_pernikahan");
         $this->db->join("jabatan as j", "j.id = p.id_jabatan");
         $this->db->join("rekrutmen as r", "r.id_pengguna = p.id", "left");
         return $this->db->get("pengguna as p")->result_array();
@@ -32,17 +32,16 @@ class Pengguna_Model extends CI_Model
             array(
                 'nama' => $nama,
                 'password' => $password,
+                'role'  => $role,
+                'status' => $status,
+                'id_jabatan' => $status,
                 'username' => $username
             )
         );
     }
-    public function getPenggunaJabatan($id)
+
+    public function delete($data)
     {
-        $this->db->select('jabatan');
-        $this->db->from('jabatan');
-        $this->db->join('pengguna', 'jabatan.id = pengguna.id_jabatan');
-        $this->db->where('jabatan.id ', $id);
-        $query = $this->db->get()->row_array();
-        return $query;
+        return $this->db->delete('pengguna', array('id' => $data));
     }
 }
