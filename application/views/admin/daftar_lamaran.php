@@ -30,6 +30,7 @@
                                     <th>Pendidikan Terakhir</th>
                                     <th>Status Pernikahan</th>
                                     <th>CV</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -44,8 +45,14 @@
                                         <td><?= $l['warga_negara'] ?></td>
                                         <td><?= $l['pendidikan_terakhir'] ?></td>
                                         <td><?= $l['status_pernikahan'] ?></td>
-                                        <td><?= $l['upload_cv'] ?></td>
                                         <td>
+                                            <a download href="<?php echo base_url('cv/' . $l['upload_cv']) ?>">
+                                                <?= $l['upload_cv'] ?>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <?= $l['status_rekrutmen'] == "1" ? "Di Terima" : "Di Tolak" ?></td>
+                                        <td width="90px">
                                             <?php if ($l['status_rekrutmen'] == "0") { ?>
                                                 <a href="daftar_lamaran/terima/<?= $l['id'] ?>" class="btn btn-sm btn-success" style="width:32px">
                                                     <i class="fa fa-check"></i>
@@ -53,8 +60,6 @@
                                                 <a href="daftar_lamaran/tolak/<?= $l['id'] ?>" class="btn btn-sm btn-danger" style="width:32px">
                                                     <i class="fa fa-times"></i>
                                                 </a>
-                                            <?php } else { ?>
-                                                <?= $l['status_rekrutmen'] == "1" ? "Di Terima" : "Di Tolak" ?>
                                             <?php } ?>
                                         </td>
                                     </tr>
