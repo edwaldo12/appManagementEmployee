@@ -78,9 +78,8 @@ class Pengguna_Model extends CI_Model
 		return $this->db->get("jabatan")->result_array();
 	}
 
-	public function addNewPengguna()
+	public function addNewPengguna($data)
 	{
-		$data = ['status' => "1", 'role' => "Pegawai"];
 		return $this->db->insert('pengguna', $data);
 	}
 }

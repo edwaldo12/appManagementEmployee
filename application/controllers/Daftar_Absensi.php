@@ -4,7 +4,7 @@ class Daftar_Absensi extends CI_Controller
 {
 	public function index()
 	{
-		$data['daftarnama'] =  array_filter($this->absen->getNP(), function ($pegawai) {
+		$data['daftarnama'] =  array_filter($this->absen->getNP($this->input->get('start_date'), $this->input->get('end_date')), function ($pegawai) {
 			return $pegawai['role'] == "Pegawai";
 		});
 		$data['_view'] = "admin/daftar_absensi";

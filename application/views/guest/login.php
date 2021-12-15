@@ -63,3 +63,10 @@
 </body>
 
 </html>
+
+<?php if ($this->session->flashdata('gagalLogin')) { ?>
+	<?php unset($_SESSION['loginPengguna']) ?>
+	<script>
+		alert('Maaf akun anda telah di non-aktifkan!');
+	</script>
+<?php } ?>
