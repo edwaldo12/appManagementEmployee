@@ -27,7 +27,7 @@
 				$login = $this->session->userdata('user');
 				if (empty($login)) {
 				?>
-					<li class='nav-item'>
+					<!-- <li class='nav-item'>
 						<a href='<?= site_url('guest/login') ?>' class='nav-link'>
 							<i class='nav-icon fas fa-th'></i>
 							<p>
@@ -42,7 +42,7 @@
 								Ajukan Lamaran
 							</p>
 						</a>
-					</li>
+					</li> -->
 				<?php } else { ?>
 					<?php if ($login['role'] == "Admin") { ?>
 						<li class='nav-item'>

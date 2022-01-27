@@ -4,7 +4,7 @@ class PHK extends CI_Controller
 {
 	public function index()
 	{
-		$data['namapegawai'] =  array_filter($this->phk->getNamaPegawai(), function ($pegawai) {
+		$data['namapegawai'] =  array_filter($this->phk_model->getNamaPegawai(), function ($pegawai) {
 			return $pegawai['role'] == "Pegawai";
 		});
 		$data['_view'] = "admin/phk";
@@ -20,7 +20,7 @@ class PHK extends CI_Controller
 	public function upload_suratket($id)
 	{
 		$data['_view'] = "admin/upload_suratphk";
-		$data['ket_phk'] = $this->phk->getPHK($id);
+		$data['ket_phk'] = $this->phk_model->getPHK($id);
 		$this->load->view('layouts/index', $data);
 	}
 
@@ -39,7 +39,7 @@ class PHK extends CI_Controller
 				'id_pengguna' => $id,
 				"file" => $this->upload->data()['file_name']
 			];
-			$this->session->set_flashdata("uploadsk", $this->phk->update($data));
+			$this->session->set_flashdata("uploadsk", $this->phk_model->update($data));
 			redirect('PHK/index');
 		} else {
 			$this->session->set_flashdata("error_sk", $this->upload->display_errors());

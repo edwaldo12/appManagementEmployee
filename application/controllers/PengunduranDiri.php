@@ -6,7 +6,7 @@ class PengunduranDiri extends CI_Controller
 	{
 		$data['_view'] = "pegawai/pengundurandiri";
 		$loginUser = $this->session->userdata('user')['id'];
-		$data['pengunduran_diri'] = $this->pengunduran_diri->getFileKaryawan($loginUser);
+		$data['pengunduran_diri'] = $this->pengunduran_diri_model->getFileKaryawan($loginUser);
 		$this->load->view('layouts/index', $data);
 	}
 
@@ -27,7 +27,7 @@ class PengunduranDiri extends CI_Controller
 				"id_pengguna" => $loginUser,
 				"upload_surat_pd" => $this->upload->data()['file_name']
 			];
-			$this->session->set_flashdata("izin", $this->pengunduran_diri->tambahPengunduranDiri($data));
+			$this->session->set_flashdata("izin", $this->pengunduran_diri_model->tambahPengunduranDiri($data));
 			redirect('PengunduranDiri/index');
 		} else {
 			$this->session->set_flashdata("error_izin", $this->upload->display_errors());

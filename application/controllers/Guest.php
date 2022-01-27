@@ -43,8 +43,8 @@ class Guest extends CI_Controller
 				'upload_cv' => $this->upload->data()['file_name']
 			];
 
-			$this->session->set_flashdata("upload_lamaran", $this->rekrutmen->saveRekrutmen($data));
-			redirect('guest/ajukan_lamaran');
+			$this->session->set_flashdata("upload_lamaran", $this->rekrutmen_model->saveRekrutmen($data));
+			redirect('guest');
 		} else {
 			var_dump($this->upload->display_errors());
 			die;

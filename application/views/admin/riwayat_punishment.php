@@ -18,7 +18,7 @@
 					</div> -->
 
 					<div class="card-body">
-						<table class="table" id="izincuti">
+						<table class="table" id="riwayatpunishment">
 							<!-- <thead>
 								<tr>
 									<th>Surat Peringatan</th>
@@ -31,8 +31,8 @@
 										<h3>Belum ada data!</h3>
 									<?php } else { ?>
 										<h5>
-											<a download href="<?php echo base_url('SuratPeringatan/' . $rsp['punishment']) ?>">
-												<?= $rsp['punishment'] ?>
+											<a download href="<?php echo base_url('SuratPeringatan/' . $rsp['punishment_file']) ?>">
+												<?= $rsp['punishment_file'] ?>
 											</a>
 										</h5>
 									<?php } ?>

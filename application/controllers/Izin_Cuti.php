@@ -4,7 +4,7 @@ class Izin_Cuti extends CI_Controller
 {
 	public function index()
 	{
-		$data['izin_cuti'] = $this->cuti->getAllCuti();
+		$data['izin_cuti'] = $this->cuti_model->getAllCuti();
 		$data['_view'] = "admin/Izin_Cuti";
 		$this->load->view('layouts/index', $data);
 	}
@@ -12,7 +12,7 @@ class Izin_Cuti extends CI_Controller
 	public function upload_SKC($id)
 	{
 		$data['_view'] = "admin/upload_suratcuti";
-		$data['izin_cuti'] = $this->cuti->getCuti($id);
+		$data['izin_cuti'] = $this->cuti_model->getCuti($id);
 		$this->load->view('layouts/index', $data);
 	}
 
@@ -31,7 +31,7 @@ class Izin_Cuti extends CI_Controller
 				'id' => $id,
 				"file" => $this->upload->data()['file_name']
 			];
-			$this->session->set_flashdata("upload_skc", $this->cuti->update($data));
+			$this->session->set_flashdata("upload_skc", $this->cuti_model->update($data));
 			redirect('Izin_Cuti/index');
 		} else {
 			$this->session->set_flashdata("error_uploadskc", $this->upload->display_errors());

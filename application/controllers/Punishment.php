@@ -4,7 +4,7 @@ class punishment extends CI_Controller
 {
 	public function index()
 	{
-		$data['nama'] =  array_filter($this->punishment->getNamaPeg(), function ($pegawai) {
+		$data['nama'] =  array_filter($this->punishment_model->getNamaPeg(), function ($pegawai) {
 			return $pegawai['role'] == "Pegawai";
 		});
 		$data['_view'] = "admin/punishment";
@@ -20,7 +20,7 @@ class punishment extends CI_Controller
 	public function upload_sp($id)
 	{
 		$data['_view'] = "admin/upload_suratperingatan";
-		$data['surat_sp'] = $this->punishment->getPunishment($id);
+		$data['surat_sp'] = $this->punishment_model->getPunishment($id);
 		$this->load->view('layouts/index', $data);
 	}
 
@@ -39,9 +39,9 @@ class punishment extends CI_Controller
 		if ($this->upload->do_upload('upload_sp')) {
 			$data = [
 				'id_pengguna' => $id,
-				"punishment" => $this->upload->data()['file_name']
+				"punishment_file" => $this->upload->data()['file_name']
 			];
-			$this->session->set_flashdata("uploadsp", $this->punishment->update($data));
+			$this->session->set_flashdata("uploadsp", $this->punishment_model->update($data));
 			redirect('punishment/index');
 		} else {
 			$this->session->set_flashdata("error_uploadsp", $this->upload->display_errors());
@@ -52,7 +52,7 @@ class punishment extends CI_Controller
 	public function riwayatPunishment($id)
 	{
 		$data['_view'] = "admin/riwayat_punishment";
-		$data['riwayat_sp'] = $this->punishment->getRiwayatPunishment($id);
+		$data['riwayat_sp'] = $this->punishment_model->getRiwayatPunishment($id);
 		$this->load->view('layouts/index', $data);
 	}
 }

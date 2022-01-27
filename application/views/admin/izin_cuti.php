@@ -73,6 +73,6 @@
 <?php if ($this->session->flashdata('error_uploadskc')) { ?>
 	<?php unset($_SESSION['add_surat_cuti']) ?>
 	<script>
-		alert('File tidak boleh kosong!');
+		alert('File harus PDF!');
 	</script>
 <?php } ?>

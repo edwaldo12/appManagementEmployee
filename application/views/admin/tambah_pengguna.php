@@ -14,7 +14,7 @@
 				<div class="card-header">
 					<h3 class="card-title">Tambah Pengguna</h3>
 				</div>
-				<form method="POST" action="<?php echo site_url('tambah_pengguna/tambahpengguna') ?>">
+				<form method="POST" action="<?php echo site_url('Tambah_Pengguna/tambahpengguna') ?>">
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-12">
@@ -28,7 +28,7 @@
 								</div>
 								<div class="form-group">
 									<label for="password">Password</label>
-									<input type="password" class="form-control" id="username" name="username" required>
+									<input type="password" class="form-control" id="password" name="password" required>
 								</div>
 								<div class="form-group">
 									<label for="jabatan">Jabatan</label>

@@ -16,7 +16,7 @@
 
 
 					<div class="card-body">
-						<table class="table" id="izincuti">
+						<table id="punishmentpegawai">
 							<!-- <thead>
 								<tr>
 									<th>Tanggal Mulai</th>
@@ -26,15 +26,16 @@
 								</tr>
 							</thead> -->
 							<tbody>
-								<?php if ($punish_peg == NULL) {
-								?>
-									<h5>Belum ada Punishment!</h5>
-								<?php } else { ?>
-									<h5>
-										<a download href="<?php echo base_url('suratperingatan/' . $punish_peg['punishment']) ?>">
-											<?= $punish_peg['punishment'] ?>
-										</a>
-									</h5>
+								<?php foreach ($punish_peg as $key => $pp) { ?>
+									<?php if ($punish_peg == NULL) { ?>
+										<h5>Tidak ada Punishment!</h5>
+									<?php } else { ?>
+										<h5>
+											<a download href="<?php echo base_url('SuratPeringatan/' . $pp['punishment_file']) ?>">
+												<?= $pp['punishment_file'] ?>
+											</a>
+										</h5>
+									<?php } ?>
 								<?php } ?>
 							</tbody>
 					</div>

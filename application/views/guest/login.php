@@ -35,13 +35,14 @@
 						</div>
 					</div>
 					<div class="input-group mb-3">
-						<input type="password" name="password" class="form-control" placeholder="Password">
+						<input type="password" name="password" id="password" class="form-control" placeholder="Password">
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-lock"></span>
 							</div>
 						</div>
 					</div>
+					<input type="checkbox" onclick="showPassword()">Show Password
 					<div class="row">
 						<div class="col-12">
 							<button type="submit" class="btn btn-primary btn-block">Sign In</button>
@@ -70,3 +71,14 @@
 		alert('Maaf akun anda telah di non-aktifkan!');
 	</script>
 <?php } ?>
+
+<script>
+	function showPassword() {
+		var x = document.getElementById("password");
+		if (x.type === "password") {
+			x.type = "text";
+		} else {
+			x.type = "password";
+		}
+	}
+</script>

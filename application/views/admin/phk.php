@@ -66,6 +66,6 @@
 <?php if ($this->session->flashdata('error_sk')) { ?>
 	<?php unset($_SESSION['add_surat_ket']) ?>
 	<script>
-		alert('File tidak boleh kosong!');
+		alert('File harus PDF!');
 	</script>
 <?php } ?>
