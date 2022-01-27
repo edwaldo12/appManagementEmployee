@@ -12,7 +12,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<a href="<?php echo site_url('tambah_pengguna/index') ?>">
+				<a href="<?php echo site_url('Tambah_Pengguna/index') ?>">
 					<button type="button" class="mb-3 btn btn-primary">Tambah Pengguna</button>
 				</a>
 				<div class="card">

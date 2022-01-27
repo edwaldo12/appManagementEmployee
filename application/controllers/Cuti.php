@@ -18,7 +18,7 @@ class Cuti extends CI_Controller
 				'tanggal_selesai' => $this->input->post('akhircuti'),
 				'alasan' => $this->input->post('alasan')
 			];
-		$this->session->set_flashdata("cuti", $this->cuti->addCuti($data));
+		$this->session->set_flashdata("cuti", $this->cuti_model->addCuti($data));
 		redirect('Cuti/index');
 	}
 
@@ -26,7 +26,7 @@ class Cuti extends CI_Controller
 	{
 		$data['_view'] = "pegawai/riwayat_cuti";
 		$loginUser = $this->session->userdata('user')['id'];
-		$data['riwayat_ct'] = $this->cuti->getRiwayatCuti($loginUser);
+		$data['riwayat_ct'] = $this->cuti_model->getRiwayatCuti($loginUser);
 		$this->load->view('layouts/index', $data);
 	}
 }

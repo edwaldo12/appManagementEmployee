@@ -30,7 +30,7 @@
 								<?php foreach ($nama as $key => $n) { ?>
 									<tr>
 										<td><?= $n['nama'] ?></td>
-										<?php if ($n['punishment'] == null) { ?>
+										<?php if ($n['punishment_file'] == null) { ?>
 											<td>Tidak Ada Surat Peringatan</td>
 										<?php } else { ?>
 											<td>
@@ -74,6 +74,6 @@
 <?php if ($this->session->flashdata('error_uploadsp')) { ?>
 	<?php unset($_SESSION['add_sp']) ?>
 	<script>
-		alert('File tidak boleh kosong!');
+		alert('File harus PDF!');
 	</script>
 <?php } ?>

@@ -135,10 +135,10 @@ $autoload['language'] = array();
 $autoload['model'] = array(
 	"pengguna_model" => "pengguna",
 	"jabatan_model" => "jabatan",
-	"rekrutmen_model" => "rekrutmen",
-	"pengunduranDiri_model" => "pengunduran_diri",
-	"cuti_model" => "cuti",
-	"phk_model" => "phk",
-	"punishment_model" => "punishment",
-	"absensi_model" => "absen"
+	"rekrutmen_model" => "rekrutmen_model",
+	"pengunduranDiri_model" => "pengunduran_diri_model",
+	"cuti_model" => "cuti_model",
+	"phk_model" => "phk_model",
+	"punishment_model" => "punishment_model",
+	"absensi_model" => "absen_model"
 );

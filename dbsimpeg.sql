@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2021 at 05:54 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Waktu pembuatan: 17 Des 2021 pada 08.21
+-- Versi server: 10.4.21-MariaDB
+-- Versi PHP: 7.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_employeemanagement`
+-- Database: `dbsimpeg`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `absen`
+-- Struktur dari tabel `absen`
 --
 
 CREATE TABLE `absen` (
@@ -36,17 +36,18 @@ CREATE TABLE `absen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `absen`
+-- Dumping data untuk tabel `absen`
 --
 
 INSERT INTO `absen` (`id`, `id_pengguna`, `keterangan_waktu`, `jam_datang`, `jam_pulang`) VALUES
 (6, 2, '2021-12-01', '22:35:19', '23:16:06'),
-(7, 2, '2021-12-14', '23:50:49', '23:50:51');
+(7, 2, '2021-12-14', '23:50:49', '23:50:51'),
+(12, 4, '2021-12-17', '13:33:33', '13:33:36');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cuti`
+-- Struktur dari tabel `cuti`
 --
 
 CREATE TABLE `cuti` (
@@ -59,7 +60,7 @@ CREATE TABLE `cuti` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `cuti`
+-- Dumping data untuk tabel `cuti`
 --
 
 INSERT INTO `cuti` (`id`, `id_pengguna`, `tanggal_mulai`, `tanggal_selesai`, `alasan`, `file`) VALUES
@@ -69,7 +70,7 @@ INSERT INTO `cuti` (`id`, `id_pengguna`, `tanggal_mulai`, `tanggal_selesai`, `al
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jabatan`
+-- Struktur dari tabel `jabatan`
 --
 
 CREATE TABLE `jabatan` (
@@ -78,7 +79,7 @@ CREATE TABLE `jabatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `jabatan`
+-- Dumping data untuk tabel `jabatan`
 --
 
 INSERT INTO `jabatan` (`id`, `jabatan`) VALUES
@@ -95,7 +96,7 @@ INSERT INTO `jabatan` (`id`, `jabatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengguna`
+-- Struktur dari tabel `pengguna`
 --
 
 CREATE TABLE `pengguna` (
@@ -109,22 +110,20 @@ CREATE TABLE `pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pengguna`
+-- Dumping data untuk tabel `pengguna`
 --
 
 INSERT INTO `pengguna` (`id`, `nama`, `password`, `role`, `status`, `id_jabatan`, `username`) VALUES
 (1, 'Admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Admin', '1', 1, 'admin'),
 (2, 'Yohanes', 'bb4a754c233192de7bcd540688f617730b79f08e', 'Pegawai', '1', 1, 'yohanes'),
 (4, 'Jonathan', '3692bfa45759a67d83aedf0045f6cb635a966abf', 'Pegawai', '1', 6, 'jonathan'),
-(6, 'Abi', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'Pegawai', '1', 2, 'abi'),
-(7, 'Bagas', '7cd6e3b4926614fd26f2e2ed70ee9cea47662c8f', 'Pegawai', '1', 14, 'bagas'),
-(8, 'Budi', 'c4a683c78ef3829cd47a3b06dfc23db7344821f0', 'Pegawai', '1', 2, 'budi'),
-(20, 'asdadad12313', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'Pegawai', '1', 4, '1231312313');
+(6, 'Abi', '5a390517a76f9cfde47d1d4eb14a7aab20dd5666', 'Pegawai', '1', 2, 'abi'),
+(8, 'Budi', 'c4a683c78ef3829cd47a3b06dfc23db7344821f0', 'Pegawai', '1', 2, 'budi');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengunduran_diri`
+-- Struktur dari tabel `pengunduran_diri`
 --
 
 CREATE TABLE `pengunduran_diri` (
@@ -135,17 +134,16 @@ CREATE TABLE `pengunduran_diri` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pengunduran_diri`
+-- Dumping data untuk tabel `pengunduran_diri`
 --
 
 INSERT INTO `pengunduran_diri` (`id`, `id_pengguna`, `upload_surat_pd`, `file`) VALUES
-(1, 2, 'Surat_Pengunduran_Diri1.pdf', 'Surat_Pengalaman_Kerja8.pdf'),
-(2, 7, 'Surat_Pengunduran_Diri3.pdf', 'Surat_Pengalaman_Kerja7.pdf');
+(1, 2, 'Surat_Pengunduran_Diri1.pdf', 'Surat_Pengalaman_Kerja8.pdf');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `phk`
+-- Struktur dari tabel `phk`
 --
 
 CREATE TABLE `phk` (
@@ -155,7 +153,7 @@ CREATE TABLE `phk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `phk`
+-- Dumping data untuk tabel `phk`
 --
 
 INSERT INTO `phk` (`id`, `id_pengguna`, `file`) VALUES
@@ -164,7 +162,7 @@ INSERT INTO `phk` (`id`, `id_pengguna`, `file`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `punishment`
+-- Struktur dari tabel `punishment`
 --
 
 CREATE TABLE `punishment` (
@@ -174,18 +172,17 @@ CREATE TABLE `punishment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `punishment`
+-- Dumping data untuk tabel `punishment`
 --
 
 INSERT INTO `punishment` (`id`, `id_pengguna`, `punishment`) VALUES
 (1, 6, 'Surat_Peringatan5.pdf'),
-(2, 6, 'Surat_Peringatan6.pdf'),
-(3, 7, 'Surat_Peringatan7.pdf');
+(2, 6, 'Surat_Peringatan6.pdf');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rekrutmen`
+-- Struktur dari tabel `rekrutmen`
 --
 
 CREATE TABLE `rekrutmen` (
@@ -206,7 +203,7 @@ CREATE TABLE `rekrutmen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `rekrutmen`
+-- Dumping data untuk tabel `rekrutmen`
 --
 
 INSERT INTO `rekrutmen` (`id`, `nama`, `alamat`, `telepon`, `jenis_kelamin`, `tanggal_lahir`, `agama`, `warga_negara`, `pendidikan_terakhir`, `status_pernikahan`, `id_jabatan`, `status_rekrutmen`, `upload_cv`, `id_pengguna`) VALUES
@@ -220,55 +217,55 @@ INSERT INTO `rekrutmen` (`id`, `nama`, `alamat`, `telepon`, `jenis_kelamin`, `ta
 --
 
 --
--- Indexes for table `absen`
+-- Indeks untuk tabel `absen`
 --
 ALTER TABLE `absen`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_pengguna` (`id_pengguna`);
 
 --
--- Indexes for table `cuti`
+-- Indeks untuk tabel `cuti`
 --
 ALTER TABLE `cuti`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_pengguna` (`id_pengguna`);
 
 --
--- Indexes for table `jabatan`
+-- Indeks untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pengguna`
+-- Indeks untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_jabatan` (`id_jabatan`);
 
 --
--- Indexes for table `pengunduran_diri`
+-- Indeks untuk tabel `pengunduran_diri`
 --
 ALTER TABLE `pengunduran_diri`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_pengguna` (`id_pengguna`);
 
 --
--- Indexes for table `phk`
+-- Indeks untuk tabel `phk`
 --
 ALTER TABLE `phk`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_pengguna` (`id_pengguna`);
 
 --
--- Indexes for table `punishment`
+-- Indeks untuk tabel `punishment`
 --
 ALTER TABLE `punishment`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_pengguna` (`id_pengguna`);
 
 --
--- Indexes for table `rekrutmen`
+-- Indeks untuk tabel `rekrutmen`
 --
 ALTER TABLE `rekrutmen`
   ADD PRIMARY KEY (`id`),
@@ -276,99 +273,99 @@ ALTER TABLE `rekrutmen`
   ADD KEY `id_pengguna` (`id_pengguna`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `absen`
+-- AUTO_INCREMENT untuk tabel `absen`
 --
 ALTER TABLE `absen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `cuti`
+-- AUTO_INCREMENT untuk tabel `cuti`
 --
 ALTER TABLE `cuti`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `jabatan`
+-- AUTO_INCREMENT untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `pengguna`
+-- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `pengunduran_diri`
+-- AUTO_INCREMENT untuk tabel `pengunduran_diri`
 --
 ALTER TABLE `pengunduran_diri`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `phk`
+-- AUTO_INCREMENT untuk tabel `phk`
 --
 ALTER TABLE `phk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `punishment`
+-- AUTO_INCREMENT untuk tabel `punishment`
 --
 ALTER TABLE `punishment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `rekrutmen`
+-- AUTO_INCREMENT untuk tabel `rekrutmen`
 --
 ALTER TABLE `rekrutmen`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `absen`
+-- Ketidakleluasaan untuk tabel `absen`
 --
 ALTER TABLE `absen`
   ADD CONSTRAINT `absen_ibfk_1` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `cuti`
+-- Ketidakleluasaan untuk tabel `cuti`
 --
 ALTER TABLE `cuti`
   ADD CONSTRAINT `cuti_ibfk_1` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pengguna`
+-- Ketidakleluasaan untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD CONSTRAINT `pengguna_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pengunduran_diri`
+-- Ketidakleluasaan untuk tabel `pengunduran_diri`
 --
 ALTER TABLE `pengunduran_diri`
   ADD CONSTRAINT `pengunduran_diri_ibfk_1` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `phk`
+-- Ketidakleluasaan untuk tabel `phk`
 --
 ALTER TABLE `phk`
   ADD CONSTRAINT `phk_ibfk_1` FOREIGN KEY (`id`) REFERENCES `pengguna` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `punishment`
+-- Ketidakleluasaan untuk tabel `punishment`
 --
 ALTER TABLE `punishment`
   ADD CONSTRAINT `punishment_ibfk_1` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rekrutmen`
+-- Ketidakleluasaan untuk tabel `rekrutmen`
 --
 ALTER TABLE `rekrutmen`
   ADD CONSTRAINT `rekrutmen_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

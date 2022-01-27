@@ -13,9 +13,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
-					<div class="card-header">
+					<!-- <div class="card-header">
 						<h4 class="card-title">Daftar Lamaran</h4>
-					</div>
+					</div> -->
 
 					<div class="card-body">
 						<table class="table" id="daftar_lamaran">
@@ -61,6 +61,13 @@
 													<i class="fa fa-check"></i>
 												</a>
 												<a href="daftar_lamaran/tolak/<?= $l['id'] ?>" class="btn btn-sm btn-danger" style="width:32px">
+													<i class="fa fa-times"></i>
+												</a>
+											<?php } else { ?>
+												<a href="#" class="btn btn-sm btn-dark" style="width:32px">
+													<i class="fa fa-check"></i>
+												</a>
+												<a href="#" class="btn btn-sm btn-dark" style="width:32px">
 													<i class="fa fa-times"></i>
 												</a>
 											<?php } ?>

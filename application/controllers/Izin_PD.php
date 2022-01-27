@@ -5,7 +5,7 @@ class Izin_PD extends CI_Controller
 
 	public function index()
 	{
-		$data['izin_undur'] = $this->pengunduran_diri->getAllPengunduranDiri();
+		$data['izin_undur'] = $this->pengunduran_diri_model->getAllPengunduranDiri();
 		$data['_view'] = "admin/izin_pd";
 		$this->load->view('layouts/index', $data);
 	}
@@ -13,7 +13,7 @@ class Izin_PD extends CI_Controller
 	public function upload_SPK($id)
 	{
 		$data['_view'] = "admin/upload_spk";
-		$data['undur_diri'] = $this->pengunduran_diri->getPD($id);
+		$data['undur_diri'] = $this->pengunduran_diri_model->getPD($id);
 		$this->load->view('layouts/index', $data);
 	}
 
@@ -32,7 +32,7 @@ class Izin_PD extends CI_Controller
 				'id' => $id,
 				"file" => $this->upload->data()['file_name']
 			];
-			$this->session->set_flashdata("uploadSPK", $this->pengunduran_diri->update($data));
+			$this->session->set_flashdata("uploadSPK", $this->pengunduran_diri_model->update($data));
 			redirect('Izin_PD/index');
 		} else {
 			$this->session->set_flashdata("error_uploadSPK", $this->upload->display_errors());

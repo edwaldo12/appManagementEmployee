@@ -6,7 +6,7 @@ class ket_phk extends CI_Controller
 	{
 		$data['_view'] = "pegawai/ket_phk";
 		$loginUser = $this->session->userdata('user')['id'];
-		$data['keterangan_phk'] = $this->phk->getDaftarPHK($loginUser);
+		$data['keterangan_phk'] = $this->phk_model->getDaftarPHK($loginUser);
 		$this->load->view('layouts/index', $data);
 	}
 }

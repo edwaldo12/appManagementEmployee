@@ -13,9 +13,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
-					<div class="card-header">
+					<!-- <div class="card-header">
 						<h4 class="card-title">Daftar Pengunduran Diri Pegawai</h4>
-					</div>
+					</div> -->
 
 					<div class="card-body">
 						<table class="table" id="izinpd">
@@ -69,7 +69,7 @@
 <?php if ($this->session->flashdata('error_uploadSPK')) { ?>
 	<?php unset($_SESSION['add_surat_pk']) ?>
 	<script>
-		alert('File tidak boleh kosong!');
+		alert('File harus PDF!');
 	</script>
 <?php } ?>
 

@@ -47,6 +47,6 @@
 <?php if ($this->session->flashdata('error_izin')) { ?>
 	<?php unset($_SESSION['ajukan']) ?>
 	<script>
-		alert('File tidak boleh kosong!');
+		alert('File harus PDF!');
 	</script>
 <?php } ?>
