@@ -5,12 +5,22 @@ class Cuti extends CI_Controller
 	public function index()
 	{
 		$data['_view'] = "pegawai/cuti";
+		$loginUser = $this->session->userdata('user')['id'];
+		$data['hari_cuti'] = $this->cuti_model->getCutiHari($loginUser);
 		$this->load->view('layouts/index', $data);
 	}
 
 	public function inputCuti()
 	{
 		$loginUser = $this->session->userdata('user')['id'];
+		$hariCuti = $this->cuti_model->getCutiHari($loginUser);
+		$tanggalInput = date_diff(new DateTime($this->input->post('akhircuti')), new DateTime(
+			$this->input->post('awalcuti')
+		));
+		if ($tanggalInput->d > (12 - $hariCuti)) {
+			$this->session->set_flashdata("cuti_tidak_dapat", "Maaf cuti tidak dapat diajukan!");
+			redirect('Cuti/index');
+		}
 		$data =
 			[
 				'id_pengguna' => $loginUser,

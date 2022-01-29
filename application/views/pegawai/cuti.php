@@ -5,6 +5,9 @@
 				<h4 class="">Cuti</h4>
 			</div>
 		</div>
+		<div class="p">
+			sisa cuti anda : <?php echo 12 - $hari_cuti ?> hari
+		</div>
 		<form method="POST" enctype="multipart/form-data" action="<?= site_url('Cuti/inputCuti') ?>">
 			<div class="card-body">
 				<div class="form-group">
@@ -33,8 +36,15 @@
 </div>
 
 <?php if ($this->session->flashdata('cuti')) { ?>
-	<?php unset($_SESSION['inputCuti']) ?>
+	<?php unset($_SESSION['cuti']) ?>
 	<script>
 		alert('Izin Cuti berhasil diajukan!');
+	</script>
+<?php } ?>
+
+<?php if ($this->session->flashdata('cuti_tidak_dapat')) { ?>
+	<?php unset($_SESSION['cuti_tidak_dapat']) ?>
+	<script>
+		alert('Tidak dapat cuti !');
 	</script>
 <?php } ?>

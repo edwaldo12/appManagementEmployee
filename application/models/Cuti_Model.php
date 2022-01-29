@@ -21,6 +21,17 @@ class Cuti_Model extends CI_Model
 		return $this->db->insert('cuti', $data);
 	}
 
+	public function getCutiHari($id_pengguna)
+	{
+		$this->db->select("SUM(DATEDIFF(
+		cuti.tanggal_selesai,
+		cuti.tanggal_mulai
+		)) AS lama_cuti");
+		$this->db->from("cuti");
+		$this->db->where('id_pengguna', $id_pengguna);
+		return $this->db->get()->row('lama_cuti');
+	}
+
 	public function getCuti($izin_cuti)
 	{
 		$this->db->where(['id' => $izin_cuti]);

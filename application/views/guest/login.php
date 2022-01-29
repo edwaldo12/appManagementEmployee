@@ -18,13 +18,10 @@
 
 <body class="hold-transition login-page">
 	<div class="login-box">
-		<div class="login-logo">
-		</div>
 		<!-- /.login-logo -->
 		<div class="card">
 			<div class="card-body login-card-body">
 				<p class="login-box-msg">Silahkan masukkan Username dan Password Anda!</p>
-
 				<form action="<?= site_url('login/loginPengguna') ?>" method="post">
 					<div class="input-group mb-3">
 						<input type="text" name="username" class="form-control" placeholder="Username">
@@ -54,7 +51,7 @@
 			</div>
 		</div>
 		<!-- /.login-box -->
-
+		</div<>
 		<!-- jQuery -->
 		<script src="<?= site_url() ?>adminlte/plugins/jquery/jquery.min.js"></script>
 		<!-- Bootstrap 4 -->
