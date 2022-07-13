@@ -2,7 +2,6 @@
 
 class Izin_PD extends CI_Controller
 {
-
 	public function index()
 	{
 		$data['izin_undur'] = $this->pengunduran_diri_model->getAllPengunduranDiri();
